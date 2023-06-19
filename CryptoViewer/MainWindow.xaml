@@ -1,0 +1,63 @@
+﻿<Window x:Class="CryptoViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CryptoViewer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="920"
+        WindowStyle="None" 
+        AllowsTransparency="True" Background="Transparent"
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen">
+    <Border Background="#161A1E"
+            CornerRadius="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="CryptoViewer"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="24"
+                   Foreground="White"
+                   Margin="0,0,0,0"/>
+
+            <StackPanel Grid.Row="1">
+                <RadioButton Content="Home"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="16"
+                             Style="{StaticResource MenuButtonTheme}"/>
+                <RadioButton Content="Chart"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="16"
+                             Style="{StaticResource MenuButtonTheme}"/>
+                <RadioButton Content="Language"
+                             Height="50"
+                             Foreground="White"
+                             FontSize="16"
+                             Style="{StaticResource MenuButtonTheme}"/>
+            </StackPanel>
+
+            <TextBox Width="200"
+                     Height="50"
+                     Grid.Column="1"
+                     VerticalContentAlignment="Center"
+                     HorizontalAlignment="Left"
+                     HorizontalContentAlignment="Left"
+                     Margin="10"
+                     Text="Search"
+                     Style="{StaticResource SimpleTextBox}"/>
+
+        </Grid>
+    </Border>
+</Window>
