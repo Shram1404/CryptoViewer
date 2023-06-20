@@ -1,14 +1,69 @@
 ﻿<UserControl x:Class="CryptoViewer.MVVM.View.CoinInfoView"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:CryptoViewer.MVVM.View"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800">
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CryptoViewer.MVVM.View" 
+             xmlns:viewmodel="clr-namespace:CryptoViewer.MVVM.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:CoinInfoViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
 
+    <UserControl.Resources>
+        <Style x:Key="CustomTextBlockStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </UserControl.Resources>
 
-    <Grid>
-        <TextBlock>Test</TextBlock>
-    </Grid>
+    <StackPanel>
+        <TextBlock Text="Coin info"
+                   Foreground="White"
+                   FontSize="24"
+                   FontFamily="Segoe UI"
+                   Margin="5,0,0,20"/>
+        <ContentControl Content="{Binding Coin}">
+            <ContentControl.ContentTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding Id, StringFormat='ID: {0}'}" 
+                                   Margin="5" 
+                                   Style="{StaticResource CustomTextBlockStyle}"/>
+                        <TextBlock Text="{Binding Rank, StringFormat='Rank: {0}'}" 
+                                   Margin="5" 
+                                   Style="{StaticResource CustomTextBlockStyle}"/>
+                        <TextBlock Text="{Binding Symbol, StringFormat='Symbol: {0}'}" 
+                                   Margin="5" 
+                                   Style="{StaticResource CustomTextBlockStyle}"/>
+                        <TextBlock Text="{Binding Name, StringFormat='Name: {0}'}" 
+                                   Margin="5" 
+                                   Style="{StaticResource CustomTextBlockStyle}"/>
+                        <TextBlock Text="{Binding Supply, StringFormat='Supply: {0}'}" 
+                                   Margin="5" 
+                                   Style="{StaticResource CustomTextBlockStyle}"/>
+                        <TextBlock Text="{Binding MaxSupply, StringFormat='Max supply: {0}'}" 
+                                   Margin="5" 
+                                   Style="{StaticResource CustomTextBlockStyle}"/>
+                        <TextBlock Text="{Binding MarketCapUsd, StringFormat='Market cap USD: {0}'}" 
+                                   Margin="5" 
+                                   Style="{StaticResource CustomTextBlockStyle}"/>
+                        <TextBlock Text="{Binding VolumeUsd24Hr, StringFormat='Volume USD 24H: {0}'}" 
+                                   Margin="5" 
+                                   Style="{StaticResource CustomTextBlockStyle}"/>
+                        <TextBlock Text="{Binding PriceUsd, StringFormat='Price USD: {0}'}" 
+                                   Margin="5" 
+                                   Style="{StaticResource CustomTextBlockStyle}"/>
+                        <TextBlock Text="{Binding ChangePercent24Hr, StringFormat='Change percent 24H: {0}'}" 
+                                   Margin="5" 
+                                   Style="{StaticResource CustomTextBlockStyle}"/>
+                        <TextBlock Text="{Binding Vwap24Hr, StringFormat='Vwap 24H: {0}'}" 
+                                   Margin="5" 
+                                   Style="{StaticResource CustomTextBlockStyle}"/>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ContentControl.ContentTemplate>
+        </ContentControl>
+    </StackPanel>
 </UserControl>

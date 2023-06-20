@@ -22,14 +22,14 @@ namespace CryptoViewer.Services
             client.DefaultRequestHeaders.Add("Authorization", "Bearer " + API_KEY);
         }
 
-        public static async Task<string> GetRequest(string Url)
+        private static async Task<string> GetRequest(string Url)
         {
             Thread.Sleep(30); // TEMP
             string? getResponse = await client.GetStringAsync(Url);
             return getResponse.ToString();
         }
 
-        public static async Task<string> GetCoin() =>
+        public static async Task<string> GetCoins() =>
             await GetRequest(string.Format(API_URL + "/assets"));
 
         public static async Task<string> GetCoinById(string id) =>

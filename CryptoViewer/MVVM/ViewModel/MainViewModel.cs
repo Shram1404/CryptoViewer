@@ -1,9 +1,4 @@
 ﻿using CryptoViewer.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CryptoViewer.MVVM.ViewModel
 {
@@ -20,7 +15,7 @@ namespace CryptoViewer.MVVM.ViewModel
         public object CurrentView
         {
             get { return _currentView; }
-            set 
+            set
             {
                 _currentView = value;
                 OnPropertyChanged();

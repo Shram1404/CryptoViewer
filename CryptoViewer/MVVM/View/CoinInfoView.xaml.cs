@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CryptoViewer.MVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,16 @@ namespace CryptoViewer.MVVM.View
     /// </summary>
     public partial class CoinInfoView
     {
+        private CoinInfoViewModel _CoinInfoVM;
         public CoinInfoView()
         {
             InitializeComponent();
+            Loaded += UserControl_Loaded;
+        }
+        private async void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            _CoinInfoVM = (CoinInfoViewModel)DataContext;
+            await _CoinInfoVM.GetDataFromApi();
         }
     }
 }
