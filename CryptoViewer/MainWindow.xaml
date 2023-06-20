@@ -4,12 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CryptoViewer"
+        xmlns:vm="clr-namespace:CryptoViewer.MVVM.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="920"
         WindowStyle="None" 
         AllowsTransparency="True" Background="Transparent"
         ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+    
     <Border Background="#161A1E"
             CornerRadius="20">
         <Grid>
@@ -35,12 +41,15 @@
                              Height="50"
                              Foreground="White"
                              FontSize="16"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked = "True"
+                             Command="{Binding HomeViewCommand}"/>
                 <RadioButton Content="Chart"
                              Height="50"
                              Foreground="White"
                              FontSize="16"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding CoinInfoViewCommand}"/>
                 <RadioButton Content="Language"
                              Height="50"
                              Foreground="White"
@@ -55,9 +64,22 @@
                      HorizontalAlignment="Left"
                      HorizontalContentAlignment="Left"
                      Margin="10"
-                     Text="Search"
                      Style="{StaticResource SimpleTextBox}"/>
 
+            <Button Width="20"
+                    Height="20"
+                    Content="✖"
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,10,40"
+                    Foreground="#A52A2A"
+                    Click="CloseAppButton_Click"
+                    Style="{StaticResource WindowControlButtonTheme}"/>
+
+
+            <ContentControl Grid.Row="1" Grid.Column="1"
+                            Margin="10"
+                            Content="{Binding CurrentView}"/>
         </Grid>
     </Border>
 </Window>

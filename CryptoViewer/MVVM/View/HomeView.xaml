@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="CryptoViewer.MVVM.View.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CryptoViewer.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <TextBlock Text="Top Cryptocurrency"
+                   Foreground="White"
+                   FontSize="24"
+                   HorizontalAlignment="Left"
+                   Margin="5,0,0,20"
+                   FontFamily="Segoe UI"/>
+        <ListBox x:Name="coinListBox" ItemsSource="{Binding CoinDataList}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <!-- Add more ColumnDefinitions as needed -->
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{Binding Rank}" Grid.Column="0"/>
+                        <TextBlock Text="{Binding Symbol}" Grid.Column="1"/>
+                        <TextBlock Text="{Binding Name}" Grid.Column="2"/>
+                        <!-- Add more TextBlocks for other properties as needed -->
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
+</UserControl>

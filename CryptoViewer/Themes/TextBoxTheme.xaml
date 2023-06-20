@@ -7,7 +7,7 @@
                     <Border CornerRadius="10" Background="#222f2F" Width="200" Height="40">
                         <Grid>
                             <Rectangle StrokeThickness="1"/>
-                            
+
                             <TextBox Margin="1" 
                                      Text="{TemplateBinding Text}" 
                                      Background="Transparent"
@@ -16,15 +16,15 @@
                                      FontSize="11" 
                                      FontFamily="Segoe UI"
                                      Padding="5" 
-                                     VerticalContentAlignment="Center" 
-                                     HorizontalContentAlignment="Left"/>
+                                     VerticalContentAlignment="Center"
+                                     x:Name="SearchBox"/>
 
                             <TextBlock IsHitTestVisible="False" 
                                        Text="Search" 
                                        Foreground="#CFCFCF"
+                                       Margin="10,0,0,0"
                                        FontSize="11" 
                                        FontFamily="Segoe UI" 
-                                       Padding="5" 
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Left" 
                                        Grid.Column="1">
@@ -39,13 +39,12 @@
                                         <Setter Property="Visibility" Value="Hidden"/>
                                     </Style>
                                 </TextBlock.Style>
-
                             </TextBlock>
+
                         </Grid>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-
 </ResourceDictionary>
