@@ -1,4 +1,5 @@
-﻿using CryptoViewer.MVVM.Model;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CryptoViewer.MVVM.Model;
 using CryptoViewer.Services;
 using System.Collections.ObjectModel;
 using System.ComponentModel;

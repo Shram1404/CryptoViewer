@@ -26,6 +26,8 @@
         <ContentControl Content="{Binding Coin}">
             <ContentControl.ContentTemplate>
                 <DataTemplate>
+                    <Border Background="#252A2E"
+                            CornerRadius="8">
                     <StackPanel Orientation="Vertical">
                         <TextBlock Text="{Binding Id, StringFormat='ID: {0}'}" 
                                    Margin="5" 
@@ -62,6 +64,7 @@
                                    Style="{StaticResource CustomTextBlockStyle}"/>
 
                     </StackPanel>
+                    </Border>
                 </DataTemplate>
             </ContentControl.ContentTemplate>
         </ContentControl>

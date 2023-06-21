@@ -13,23 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CryptoViewer
+namespace CryptoViewer.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для CoinHistoryLiveView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CoinHistoryLiveView : UserControl
     {
-        public MainWindow()
+        public CoinHistoryLiveView()
         {
             InitializeComponent();
-            DataContext = new MVVM.ViewModel.MainViewModel();
-
         }
-        private void CloseAppButton_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
     }
 }

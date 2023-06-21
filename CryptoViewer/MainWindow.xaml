@@ -50,12 +50,12 @@
                              FontSize="16"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding CoinInfoViewCommand}"/>
-                <RadioButton Content="Coin history"
+                <RadioButton Content="Coin history live"
                              Height="50"
                              Foreground="White"
                              FontSize="16"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding CoinInfoViewCommand}"/>
+                             Command="{Binding CoinHistoryLiveViewCommand}"/>
                 <RadioButton Content="Coin markets"
                              Height="50"
                              Foreground="White"
@@ -70,7 +70,18 @@
                      HorizontalAlignment="Left"
                      HorizontalContentAlignment="Left"
                      Margin="10"
-                     Style="{StaticResource SimpleTextBox}"/>
+                     Style="{StaticResource SimpleTextBox}"
+                     Text="{Binding SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+            <Button Width="60"
+                    Height="30"
+                    Content="Search"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    Margin="230,0,0,0"
+                    Command="{Binding SearchCommand}"
+                    CommandParameter="{Binding SearchText}"/>
+
 
             <Button Width="20"
                     Height="20"

@@ -22,14 +22,13 @@
                       HorizontalAlignment="Left"
                       Margin="0,0,0,0"/>
 
-
         <DataGrid ItemsSource="{Binding Coins}" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Rank" Binding="{Binding Rank}" />
-                <DataGridTextColumn Header="Symbol" Binding="{Binding Symbol}" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
-                <DataGridTextColumn Header="PriceUsd" Binding="{Binding PriceUsd}" />
+                <DataGridTextColumn Header="ID  " Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Rank  " Binding="{Binding Rank}" />
+                <DataGridTextColumn Header="Symbol  " Binding="{Binding Symbol}" />
+                <DataGridTextColumn Header="Name  " Binding="{Binding Name}" />
+                <DataGridTextColumn Header="PriceUsd  " Binding="{Binding PriceUsd}" />
             </DataGrid.Columns>
         </DataGrid>
 

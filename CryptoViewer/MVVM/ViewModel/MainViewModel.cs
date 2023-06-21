@@ -6,9 +6,25 @@ namespace CryptoViewer.MVVM.ViewModel
     {
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand CoinInfoViewCommand { get; set; }
+        public RelayCommand CoinHistoryLiveViewCommand { get; set; }
+
+        public RelayCommand SearchCommand { get; set; }
 
         public HomeViewModel HomeVM { get; set; }
         public CoinInfoViewModel CoinInfoVM { get; set; }
+        public CoinHistoryLiveViewModel CoinHistoryLiveVM { get; set; }
+
+        private string _searchText;
+
+        public string SearchText
+        {
+            get { return _searchText; }
+            set
+            {
+                _searchText = value;
+                OnPropertyChanged();
+            }
+        }
 
         private object _currentView;
 
@@ -25,6 +41,7 @@ namespace CryptoViewer.MVVM.ViewModel
         {
             HomeVM = new HomeViewModel();
             CoinInfoVM = new CoinInfoViewModel();
+            CoinHistoryLiveVM = new CoinHistoryLiveViewModel();
 
             CurrentView = HomeVM;
 
@@ -36,6 +53,16 @@ namespace CryptoViewer.MVVM.ViewModel
             CoinInfoViewCommand = new RelayCommand(o =>
             {
                 CurrentView = CoinInfoVM;
+            });
+
+            CoinHistoryLiveViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = CoinHistoryLiveVM;
+            });
+
+            SearchCommand = new RelayCommand(o =>
+            {
+                CoinInfoVM.SearchCoin(SearchText);
             });
         }
     }
