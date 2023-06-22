@@ -14,7 +14,7 @@ namespace CryptoViewer.MVVM.ViewModel
         public CoinInfoViewModel CoinInfoVM { get; set; }
         public CoinHistoryLiveViewModel CoinHistoryLiveVM { get; set; }
 
-        private string _searchText;
+        private static string _searchText;
 
         public string SearchText
         {
@@ -37,12 +37,14 @@ namespace CryptoViewer.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
+
+        private CoinHistoryLiveViewModel _coinHistoryLiveVM;
+
         public MainViewModel()
         {
             HomeVM = new HomeViewModel();
             CoinInfoVM = new CoinInfoViewModel();
-            CoinHistoryLiveVM = new CoinHistoryLiveViewModel();
-
+            _coinHistoryLiveVM = new CoinHistoryLiveViewModel();
             CurrentView = HomeVM;
 
             HomeViewCommand = new RelayCommand(o =>
@@ -57,12 +59,15 @@ namespace CryptoViewer.MVVM.ViewModel
 
             CoinHistoryLiveViewCommand = new RelayCommand(o =>
             {
-                CurrentView = CoinHistoryLiveVM;
+                CurrentView = _coinHistoryLiveVM;
             });
 
             SearchCommand = new RelayCommand(o =>
             {
-                CoinInfoVM.SearchCoin(SearchText);
+                if (CurrentView == CoinInfoVM)
+                    CoinInfoVM.SearchCoin(SearchText);
+                if (CurrentView == _coinHistoryLiveVM)
+                    _coinHistoryLiveVM.SearchCoin(SearchText);
             });
         }
     }

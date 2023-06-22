@@ -1,6 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Text.Json;
-using CryptoViewer.MVVM.Model;
 
 namespace CryptoViewer.Services
 {
@@ -16,10 +17,21 @@ namespace CryptoViewer.Services
             using var jsonDocument = JsonDocument.Parse(apiData);
             var data = jsonDocument.RootElement.GetProperty("data").GetRawText();
 
+
+
             if (isArray)
             {
-                var models = JsonSerializer.Deserialize<T[]>(data, options);
-                var collection = new ObservableCollection<T>(models ?? System.Array.Empty<T>());
+                T[] models = null;
+                try
+                {
+                    models = JsonSerializer.Deserialize<T[]>(data, options);
+                }
+                catch (Exception ex)
+                {
+                    Trace.WriteLine("Transform exception");
+                }
+
+                var collection = new ObservableCollection<T>(models ?? Array.Empty<T>());
                 return collection;
             }
             else
@@ -30,9 +42,5 @@ namespace CryptoViewer.Services
                 return collection;
             }
         }
-
-
-
-
     }
 }

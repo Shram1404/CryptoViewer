@@ -12,7 +12,7 @@ namespace CryptoViewer.Services
     public static class CoincapAPI
     {
         static readonly string API_URL = "https://api.coincap.io/v2";
-        static readonly string API_KEY = ""; // TEMP
+        static readonly string API_KEY = "32175a8d-e318-4b69-b0f8-18741cc1c1e5"; // TEMP
 
         private static readonly HttpClient client = new HttpClient();
 

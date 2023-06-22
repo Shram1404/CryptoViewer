@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CryptoViewer.MVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace CryptoViewer.MVVM.View
 {
@@ -24,5 +26,6 @@ namespace CryptoViewer.MVVM.View
         {
             InitializeComponent();
         }
+
     }
 }

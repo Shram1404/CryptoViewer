@@ -11,7 +11,7 @@ namespace CryptoViewer.MVVM.View
         private HomeViewModel _homeVM;
         private DispatcherTimer _timer;
 
-        private bool AutoRefresh = true;
+        private bool AutoRefresh = false;
 
         public HomeView()
         {

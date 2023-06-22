@@ -1,0 +1,10 @@
+{
+  "$schema": "https://aka.ms/vs/debugger-managed-favorites-schema",
+  "types": {
+    "CryptoViewer.MVVM.ViewModel.CoinHistoryLiveViewModel": {
+      "favorites": [
+        "_searchText"
+      ]
+    }
+  }
+}
